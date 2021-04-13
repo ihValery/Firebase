@@ -1,11 +1,5 @@
-//
-//  TasksViewController.swift
-//  Lesson28
-//
-//  Created by Валерий Игнатьев on 13.04.21.
-//
-
 import UIKit
+import Firebase
 
 class TasksViewController: UIViewController {
     
@@ -21,9 +15,13 @@ class TasksViewController: UIViewController {
     }
     
     @IBAction func signOut(_ sender: UIBarButtonItem) {
-        self.navigationController?.popToRootViewController(animated: true)
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print(error.localizedDescription)
+        }
+        dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension TasksViewController: UITableViewDelegate {

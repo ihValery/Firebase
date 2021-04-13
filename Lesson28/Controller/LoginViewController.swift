@@ -117,7 +117,7 @@ class LoginViewController: UIViewController {
                     print("User is not created")
                 }
             } else {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "nil")
             }
             
         }
@@ -139,6 +139,8 @@ class LoginViewController: UIViewController {
             
             if user != nil {
                 self?.performSegue(withIdentifier: "goTasks", sender: nil)
+                self?.emailTextField.text = ""
+                self?.passwordTextField.text = ""
                 return
             }
             
