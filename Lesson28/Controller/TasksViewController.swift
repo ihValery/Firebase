@@ -20,7 +20,7 @@ class TasksViewController: UIViewController {
         
     }
     
-    @IBAction func backTap(_ sender: UIBarButtonItem) {
+    @IBAction func signOut(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
