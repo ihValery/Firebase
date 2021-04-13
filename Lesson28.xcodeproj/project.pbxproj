@@ -56,15 +56,39 @@
 		807AABD62625731D006800DA /* Lesson28 */ = {
 			isa = PBXGroup;
 			children = (
+				807AABEE2625735E006800DA /* View */,
+				807AABED26257352006800DA /* Controller */,
+				807AABEC26257336006800DA /* System32 */,
+			);
+			path = Lesson28;
+			sourceTree = "<group>";
+		};
+		807AABEC26257336006800DA /* System32 */ = {
+			isa = PBXGroup;
+			children = (
 				807AABD72625731D006800DA /* AppDelegate.swift */,
 				807AABD92625731D006800DA /* SceneDelegate.swift */,
-				807AABDB2625731D006800DA /* ViewController.swift */,
-				807AABDD2625731D006800DA /* Main.storyboard */,
 				807AABE02625731E006800DA /* Assets.xcassets */,
 				807AABE22625731E006800DA /* LaunchScreen.storyboard */,
 				807AABE52625731E006800DA /* Info.plist */,
 			);
-			path = Lesson28;
+			path = System32;
+			sourceTree = "<group>";
+		};
+		807AABED26257352006800DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				807AABDB2625731D006800DA /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		807AABEE2625735E006800DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				807AABDD2625731D006800DA /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,8 +311,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 879U287R5Q;
-				INFOPLIST_FILE = Lesson28/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Lesson28/System32/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,8 +331,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 879U287R5Q;
-				INFOPLIST_FILE = Lesson28/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Lesson28/System32/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
