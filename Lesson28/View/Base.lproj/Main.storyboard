@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,51 +14,51 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Lesson28" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebaseLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fLJ-Ox-PSp">
-                                <rect key="frame" x="25" y="522" width="364" height="340"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="340" id="S9L-pw-R2U"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="zsG-Qy-33v">
-                                <rect key="frame" x="25" y="94" width="364" height="295.33333333333331"/>
+                                <rect key="frame" x="18" y="97.5" width="284" height="373"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ogz-uh-fRG" userLabel="logo">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="94.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="95"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firebase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEd-hZ-Me3">
-                                                <rect key="frame" x="65.333333333333329" y="0.0" width="233.33333333333337" height="77.666666666666671"/>
+                                                <rect key="frame" x="25.5" y="0.0" width="233.5" height="78"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user does not exist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOf-zk-C3r">
-                                                <rect key="frame" x="124.66666666666666" y="78.666666666666657" width="115" height="15.666666666666671"/>
+                                                <rect key="frame" x="84.5" y="79" width="115" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-JM-iGu" userLabel="textFields">
-                                        <rect key="frame" x="0.0" y="125.33333333333334" width="364" height="99"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-JM-iGu" userLabel="textFields">
+                                        <rect key="frame" x="0.0" y="126" width="284" height="111"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="woq-c5-hwi">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="284" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="A2K-Nl-42m"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                                 <connections>
                                                     <action selector="emailTextFieldTap:" destination="BYZ-38-t0r" eventType="editingChanged" id="TD5-cI-RaU"/>
                                                 </connections>
                                             </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-Ok-Df4" userLabel="password">
-                                                <rect key="frame" x="0.0" y="64.999999999999972" width="364" height="34"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-Ok-Df4" userLabel="password">
+                                                <rect key="frame" x="0.0" y="71" width="284" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IcN-dD-YHg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="284" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="Klx-Qi-vSH"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                         <connections>
@@ -65,18 +66,24 @@
                                                         </connections>
                                                     </textField>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w6V-y0-S51">
-                                                        <rect key="frame" x="0.0" y="30" width="364" height="4"/>
+                                                        <rect key="frame" x="3" y="36" width="278" height="4"/>
                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </progressView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="w6V-y0-S51" secondAttribute="trailing" constant="3" id="4Vi-ab-MEy"/>
+                                                    <constraint firstItem="IcN-dD-YHg" firstAttribute="leading" secondItem="1Eh-Ok-Df4" secondAttribute="leading" id="nTg-cA-SbX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="IcN-dD-YHg" secondAttribute="trailing" id="ww8-5r-EtC"/>
+                                                    <constraint firstItem="w6V-y0-S51" firstAttribute="leading" secondItem="1Eh-Ok-Df4" secondAttribute="leading" constant="3" id="zDy-Nr-O48"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ckx-tO-anm" userLabel="buttons">
-                                        <rect key="frame" x="0.0" y="255.33333333333331" width="364" height="40"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ckx-tO-anm" userLabel="buttons">
+                                        <rect key="frame" x="0.0" y="268" width="284" height="105"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdW-YX-med">
-                                                <rect key="frame" x="0.0" y="0.0" width="169.66666666666666" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="284" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="UYf-45-ojf"/>
@@ -95,10 +102,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDU-kp-Xrg">
-                                                <rect key="frame" x="194.66666666666663" y="0.0" width="169.33333333333337" height="40"/>
+                                                <rect key="frame" x="0.0" y="65" width="284" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="XKI-f8-dfa"/>
+                                                    <constraint firstAttribute="height" constant="40" id="lhL-uy-ijm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Sign in">
@@ -122,18 +129,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.01388947852" green="0.60620111229999996" blue="0.89712303879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zsG-Qy-33v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="9dM-7F-Lsv"/>
-                            <constraint firstItem="zsG-Qy-33v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="BHs-kF-qxy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zsG-Qy-33v" secondAttribute="trailing" constant="25" id="G4m-N3-Dfr"/>
-                            <constraint firstItem="fLJ-Ox-PSp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="Ha2-ns-aBX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fLJ-Ox-PSp" secondAttribute="bottom" id="RPI-Ig-E9i"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fLJ-Ox-PSp" secondAttribute="trailing" constant="25" id="hLP-U4-eIU"/>
+                            <constraint firstItem="zsG-Qy-33v" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="DXU-b1-ODj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zsG-Qy-33v" secondAttribute="trailing" constant="18" id="IP0-dE-zQW"/>
+                            <constraint firstItem="zsG-Qy-33v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UwF-7y-JYn"/>
+                            <constraint firstItem="zsG-Qy-33v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="vTB-0e-xoZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="woq-c5-hwi" id="7F5-CC-9El"/>
                         <outlet property="firebaseLebal" destination="nEd-hZ-Me3" id="s20-Nd-DWW"/>
-                        <outlet property="firebaseLogo" destination="fLJ-Ox-PSp" id="yZv-Id-NhR"/>
                         <outlet property="passwordTextField" destination="IcN-dD-YHg" id="yyN-CD-SHC"/>
                         <outlet property="progressViewPassword" destination="w6V-y0-S51" id="Yug-pg-jdL"/>
                         <outlet property="singIn" destination="DDU-kp-Xrg" id="dpN-5B-ag5"/>
@@ -143,26 +147,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-267" y="80"/>
+            <point key="canvasLocation" x="-321" y="79"/>
         </scene>
         <!--Firebase-->
         <scene sceneID="lg7-Bo-iLJ">
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="FqF-Cl-FxF" customClass="TasksViewController" customModule="Lesson28" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lyE-xp-veM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lyt-aF-xBd">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="56" width="320" height="492"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="feP-04-OWf">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="feP-04-OWf" id="Rer-Bg-pme">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -183,6 +187,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Firebase" id="pvB-mi-jjf">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="3jS-4D-H32">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="nlX-1F-Qgg" kind="unwind" unwindAction="unwindToLoginVC:" id="O9s-6B-Eho"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Nkm-s8-6aS">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -196,6 +206,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hd2-BM-igv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="nlX-1F-Qgg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1200" y="80"/>
         </scene>
@@ -206,7 +217,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="HyX-8X-0CD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="olg-KV-sc5">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -220,7 +231,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="firebaseLogo" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

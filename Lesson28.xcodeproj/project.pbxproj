@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		807985C02625E34C007D1E4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 807985BF2625E34C007D1E4F /* GoogleService-Info.plist */; };
 		807AABD82625731D006800DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807AABD72625731D006800DA /* AppDelegate.swift */; };
 		807AABDA2625731D006800DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807AABD92625731D006800DA /* SceneDelegate.swift */; };
 		807AABDC2625731D006800DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807AABDB2625731D006800DA /* LoginViewController.swift */; };
@@ -14,9 +15,14 @@
 		807AABE12625731E006800DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 807AABE02625731E006800DA /* Assets.xcassets */; };
 		807AABE42625731E006800DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807AABE22625731E006800DA /* LaunchScreen.storyboard */; };
 		807AABF32625B362006800DA /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807AABF22625B362006800DA /* TasksViewController.swift */; };
+		E6C65ABC0518E97A64066C6A /* Pods_Lesson28.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D393D794449C7F843160DE /* Pods_Lesson28.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10D393D794449C7F843160DE /* Pods_Lesson28.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lesson28.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31EFDF16832F1301BDC65CE0 /* Pods-Lesson28.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lesson28.release.xcconfig"; path = "Target Support Files/Pods-Lesson28/Pods-Lesson28.release.xcconfig"; sourceTree = "<group>"; };
+		450AEF384CF4BF122EC5B536 /* Pods-Lesson28.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lesson28.debug.xcconfig"; path = "Target Support Files/Pods-Lesson28/Pods-Lesson28.debug.xcconfig"; sourceTree = "<group>"; };
+		807985BF2625E34C007D1E4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		807AABD42625731D006800DA /* Lesson28.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lesson28.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		807AABD72625731D006800DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		807AABD92625731D006800DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C65ABC0518E97A64066C6A /* Pods_Lesson28.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		363FA4C21F057C16106E540F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				450AEF384CF4BF122EC5B536 /* Pods-Lesson28.debug.xcconfig */,
+				31EFDF16832F1301BDC65CE0 /* Pods-Lesson28.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6A409D0CF24E8DE116E47AD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10D393D794449C7F843160DE /* Pods_Lesson28.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		807AABCB2625731D006800DA = {
 			isa = PBXGroup;
 			children = (
 				807AABD62625731D006800DA /* Lesson28 */,
 				807AABD52625731D006800DA /* Products */,
+				363FA4C21F057C16106E540F /* Pods */,
+				6A409D0CF24E8DE116E47AD4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +99,7 @@
 				807AABE02625731E006800DA /* Assets.xcassets */,
 				807AABE22625731E006800DA /* LaunchScreen.storyboard */,
 				807AABE52625731E006800DA /* Info.plist */,
+				807985BF2625E34C007D1E4F /* GoogleService-Info.plist */,
 			);
 			path = System32;
 			sourceTree = "<group>";
@@ -101,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 807AABE82625731E006800DA /* Build configuration list for PBXNativeTarget "Lesson28" */;
 			buildPhases = (
+				757478E46D00C76ECEBBFF04 /* [CP] Check Pods Manifest.lock */,
 				807AABD02625731D006800DA /* Sources */,
 				807AABD12625731D006800DA /* Frameworks */,
 				807AABD22625731D006800DA /* Resources */,
+				0341FB3574056F30F88D1CD1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,12 +181,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				807AABE42625731E006800DA /* LaunchScreen.storyboard in Resources */,
+				807985C02625E34C007D1E4F /* GoogleService-Info.plist in Resources */,
 				807AABE12625731E006800DA /* Assets.xcassets in Resources */,
 				807AABDF2625731D006800DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0341FB3574056F30F88D1CD1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lesson28/Pods-Lesson28-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lesson28/Pods-Lesson28-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lesson28/Pods-Lesson28-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		757478E46D00C76ECEBBFF04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lesson28-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		807AABD02625731D006800DA /* Sources */ = {
@@ -311,6 +383,7 @@
 		};
 		807AABE92625731E006800DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 450AEF384CF4BF122EC5B536 /* Pods-Lesson28.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -318,6 +391,7 @@
 				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 879U287R5Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Lesson28/System32/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,6 +405,7 @@
 		};
 		807AABEA2625731E006800DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31EFDF16832F1301BDC65CE0 /* Pods-Lesson28.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -338,6 +413,7 @@
 				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 879U287R5Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Lesson28/System32/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

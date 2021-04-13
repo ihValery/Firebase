@@ -19,6 +19,11 @@ class TasksViewController: UIViewController {
     @IBAction private func addNewTastTap(_ sender: UIBarButtonItem) {
         
     }
+    
+    @IBAction func backTap(_ sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
 }
 
 extension TasksViewController: UITableViewDelegate {
