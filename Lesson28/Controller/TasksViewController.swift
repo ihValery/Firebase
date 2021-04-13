@@ -22,6 +22,10 @@ class TasksViewController: UIViewController {
         }
         dismiss(animated: true, completion: nil)
     }
+    
+    deinit {
+        print("_____________deitit TasksViewController_____________")
+    }
 }
 
 extension TasksViewController: UITableViewDelegate {

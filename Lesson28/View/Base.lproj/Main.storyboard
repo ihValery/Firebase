@@ -46,7 +46,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="A2K-Nl-42m"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <action selector="emailTextFieldTap:" destination="BYZ-38-t0r" eventType="editingChanged" id="TD5-cI-RaU"/>
                                                 </connections>
