@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -52,7 +52,6 @@
 				450AEF384CF4BF122EC5B536 /* Pods-Lesson28.debug.xcconfig */,
 				31EFDF16832F1301BDC65CE0 /* Pods-Lesson28.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -392,6 +391,7 @@
 				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 879U287R5Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Lesson28/System32/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,6 +413,7 @@
 				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = 879U287R5Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Lesson28/System32/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

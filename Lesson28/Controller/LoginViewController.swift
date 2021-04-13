@@ -26,8 +26,62 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+ 
+        //MARK: - Клавиатура
+        
+        //self - то есть наш класс наблюдает за изменениями
+        //Selector - метод который выполняется когда мы замечаем событие
+        //NSNotification.Name? - за чем мы наблюдаем? (в данном случае за методом клавиатуры)
+        //object- nil потому что ни с какими объектами сейчас не работаем
+        NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+        
     }
+    
+    //когда появляется клавиатура мы хотим знать ее размеры - notification хранит в себе некую информацию
+    @objc func kbDidShow(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        //keyboardFrameEndUserInfoKey - определяет прямоугольник (CGRect) клавиатуры в координатах экрана(в текущей ориентации устройства)
+        let kbFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= kbFrameSize.height
+        }
+        
+//        Указываем размер нашего контента (скролится - галимый эффект)
+//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height + kbFrameSize.height)
+        
+    }
+    
+    @objc func kbDidHide(notification: Notification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+        
+//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+    }
+    
+    //Скрываем клавиатуру по тапу view
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+
+        //Скрываем клавиатуру вызванную для любого объекта
+        self.view.endEditing(true)
+        
+        //Скрываем клавиатуру вызванную для конкретно этого объекта
+//        emailTextField.resignFirstResponder()
+//        passwordTextField.resignFirstResponder()
+    }
+    
+    
+    
+    //MARK: - Конец клавиатуры
+    
+    @IBAction func unwindToLoginVC(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
     @IBAction func passwordTextFieldTap(_ sender: UITextField) {
         
         isValidPassword()
