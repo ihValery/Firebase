@@ -3,7 +3,8 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
-    var validate: Validate!
+    private var validate: Validate!
+    private var ref: DatabaseReference!
     
     @IBOutlet private weak var firebaseLebal: UILabel!
     @IBOutlet private weak var warningLabel: UILabel! {
@@ -19,6 +20,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference(withPath: "users")
         
         validate = Validate()
  
@@ -112,19 +115,14 @@ class LoginViewController: UIViewController {
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { /*[weak self]*/ (user, error) in
-            //TODO: - улучшить guard и т.д.
-            if error == nil {
-                if user != nil {
-                    
-//                    self?.performSegue(withIdentifier: "goTasks", sender: nil)
-                } else {
-                    print("User is not created")
-                }
-            } else {
-                print(error?.localizedDescription ?? "nil")
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] (user, error) in
+            guard error == nil, user != nil else {
+                print(error!.localizedDescription)
+                return
             }
-            
+            guard let user = user else { return }
+            let userRef = self?.ref.child(user.user.uid)
+            userRef?.setValue(["email" : user.user.email])
         }
     }
     
