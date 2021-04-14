@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
         }
         registerForKeyboardNotifications()
     }
+    
         //MARK: - Keyboard
     
     private func registerForKeyboardNotifications() {
