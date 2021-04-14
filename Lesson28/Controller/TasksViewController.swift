@@ -12,6 +12,21 @@ class TasksViewController: UIViewController {
     }
     @IBAction private func addNewTastTap(_ sender: UIBarButtonItem) {
         
+        let alert = UIAlertController(title: "Add a new joke", message: nil, preferredStyle: .alert)
+        alert.addTextField()
+        let save = UIAlertAction(title: "Save", style: .default) { _ in
+            guard let textField = alert.textFields?.first?.text, textField != "" else { return }
+            
+            //let task
+            //taskRef
+            
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(save)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func signOut(_ sender: UIBarButtonItem) {
@@ -24,7 +39,7 @@ class TasksViewController: UIViewController {
     }
     
     deinit {
-        print("_____________deitit TasksViewController_____________")
+        print("_____________deinit TasksViewController_____________")
     }
 }
 
