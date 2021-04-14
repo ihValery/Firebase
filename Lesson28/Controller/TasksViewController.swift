@@ -40,6 +40,11 @@ class TasksViewController: UIViewController {
         ref.removeAllObservers()
     }
     
+    private func toggleCompletion(_ cell: UITableViewCell, isCompleted: Bool) {
+        
+        cell.accessoryType = isCompleted ? .checkmark : .none
+    }
+    
     @IBAction private func addNewTastTap(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add a new joke", message: nil, preferredStyle: .alert)
@@ -91,9 +96,10 @@ extension TasksViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.backgroundColor = .clear
         cell.textLabel?.textColor = .black
-        
-        let tastTitle = tasks[indexPath.row].title
-        cell.textLabel?.text = tastTitle
+        let task = tasks[indexPath.row]
+        let taskTitle = task.title
+        cell.textLabel?.text = taskTitle
+        toggleCompletion(cell, isCompleted: task.completed)
         
         return cell
     }
@@ -101,5 +107,28 @@ extension TasksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            let task = tasks[indexPath.row]
+            task.ref?.removeValue()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        let task = tasks[indexPath.row]
+        let isCompleted = !task.completed
+        
+        toggleCompletion(cell, isCompleted: isCompleted)
+        task.ref?.updateChildValues(["completed" : isCompleted])
     }
 }
