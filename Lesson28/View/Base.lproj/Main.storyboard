@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -142,96 +141,22 @@
                         <outlet property="singIn" destination="DDU-kp-Xrg" id="dpN-5B-ag5"/>
                         <outlet property="singUp" destination="jdW-YX-med" id="Nvy-pX-aGh"/>
                         <outlet property="warningLabel" destination="BOf-zk-C3r" id="8hc-Cz-Tl9"/>
-                        <segue destination="B4s-fF-IEj" kind="show" identifier="goTasks" id="wRN-Vn-LE9"/>
+                        <segue destination="AUU-Zp-cj5" kind="show" identifier="goTasks" id="fDE-Uo-bYc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-321" y="79"/>
         </scene>
-        <!--Firebase-->
-        <scene sceneID="lg7-Bo-iLJ">
+        <!--Body-->
+        <scene sceneID="w9e-bJ-ik9">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="FqF-Cl-FxF" customClass="TasksViewController" customModule="Lesson28" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lyE-xp-veM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lyt-aF-xBd">
-                                <rect key="frame" x="0.0" y="56" width="320" height="492"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="feP-04-OWf">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="feP-04-OWf" id="Rer-Bg-pme">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="FqF-Cl-FxF" id="poM-sq-gkJ"/>
-                                    <outlet property="delegate" destination="FqF-Cl-FxF" id="92W-nT-g2s"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="EOG-oy-g6q"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="EOG-oy-g6q" firstAttribute="bottom" secondItem="Lyt-aF-xBd" secondAttribute="bottom" id="BXy-j6-Qn4"/>
-                            <constraint firstItem="Lyt-aF-xBd" firstAttribute="top" secondItem="EOG-oy-g6q" secondAttribute="top" id="LIM-BF-1TY"/>
-                            <constraint firstItem="Lyt-aF-xBd" firstAttribute="leading" secondItem="EOG-oy-g6q" secondAttribute="leading" id="cky-jD-Dyb"/>
-                            <constraint firstItem="EOG-oy-g6q" firstAttribute="trailing" secondItem="Lyt-aF-xBd" secondAttribute="trailing" id="y7B-j9-S4w"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Firebase" id="pvB-mi-jjf">
-                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="3jS-4D-H32">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="signOut:" destination="FqF-Cl-FxF" id="bpe-s0-cOb"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Nkm-s8-6aS">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="addNewTastTap:" destination="FqF-Cl-FxF" id="oPP-J0-Xi5"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addNewTask" destination="Nkm-s8-6aS" id="cXZ-Kj-QRW"/>
-                        <outlet property="tableView" destination="Lyt-aF-xBd" id="klj-N5-whW"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hd2-BM-igv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Body" id="AUU-Zp-cj5" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="O7x-io-l5s"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ADo-ui-2eH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200" y="80"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="eL4-Ny-e38">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="B4s-fF-IEj" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="HyX-8X-0CD"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="olg-KV-sc5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FqF-Cl-FxF" kind="relationship" relationship="rootViewController" id="3aQ-Ao-APc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qd6-oH-BZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="448" y="80"/>
+            <point key="canvasLocation" x="288" y="78"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
