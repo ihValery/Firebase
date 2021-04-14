@@ -3,6 +3,8 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
+    var validate: Validate!
+    
     @IBOutlet private weak var firebaseLebal: UILabel!
     @IBOutlet private weak var warningLabel: UILabel! {
         willSet { newValue.alpha = 0 }
@@ -17,6 +19,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        validate = Validate()
  
         //Если есть действующий пользователь
         Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
@@ -52,6 +56,7 @@ class LoginViewController: UIViewController {
         
         if self.view.frame.origin.y == 0 {
             self.view.frame.origin.y -= kbFrameSize.height / 1.5
+            print("________kbWillShow(notification: Notification)______")
         }
     }
     
@@ -59,7 +64,7 @@ class LoginViewController: UIViewController {
         
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
-            print("________@objc func kbDidHide(notification: Notification) {______")
+            print("________kbDidHide______")
         }
     }
     
@@ -76,13 +81,13 @@ class LoginViewController: UIViewController {
     
     @IBAction private func passwordTextFieldTap(_ sender: UITextField) {
         
-        isValidPassword()
+        validate.isValidPassword(sender, progressView: progressViewPassword)
     }
     
     @IBAction private func emailTextFieldTap(_ sender: UITextField) {
         
         guard let email = emailTextField.text, email != "" else { return }
-        if isValidEmail(email) {
+        if validate.isValidEmail(email) {
             displayWarningLabel(withText: "Your email is correct")
         }
     }
@@ -152,56 +157,6 @@ class LoginViewController: UIViewController {
         passwordTextField.text = ""
         progressViewPassword.progress = 0
     }
-    
-    private func isValidEmail(_ email: String) -> Bool {
-        
-            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-            let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-            return emailPred.evaluate(with: email)
-    }
-    
-    private func isValidPassword() {
-        
-            let levelTwoBigChar   = NSPredicate(format: "SELF MATCHES %@ ",
-                                  "^(?=.*[a-z])(?=.*[A-Z]).{6,}$")
-            let levelTwoNumber    = NSPredicate(format: "SELF MATCHES %@ ",
-                                  "^(?=.*[a-z])(?=.*[0-9]).{6,}$")
-            let levelTwoSpec      = NSPredicate(format: "SELF MATCHES %@ ",
-                                  "^(?=.*[a-z])(?=.*[$@$#!%*?&]).{6,}$")
-            
-            let levelThreeNumber  = NSPredicate(format: "SELF MATCHES %@ ",
-                                  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$")
-            let levelThreeSpec    = NSPredicate(format: "SELF MATCHES %@ ",
-                                  "^(?=.*[a-z])(?=.*[0-9])(?=.*[$@$#!%*?&]).{6,}$")
-            let levelThreeBigChar = NSPredicate(format: "SELF MATCHES %@ ",
-                                  "^(?=.*[a-z])(?=.*[$@$#!%*?&])(?=.*[A-Z]).{6,}$")
-            
-            let levelFour         = NSPredicate(format: "SELF MATCHES %@ ",
-                                  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$#!%*?&]).{8,}$")
-            
-            if let pass = passwordTextField.text {
-                switch pass {
-                    case _ where levelFour.evaluate(with: pass):
-                        progressViewPassword.progress = 1
-                        progressViewPassword.progressTintColor = .green
-                    
-                    case _ where levelThreeBigChar.evaluate(with: pass) || levelThreeNumber.evaluate(with: pass) || levelThreeSpec.evaluate(with: pass):
-                        progressViewPassword.progress = 0.75
-                        progressViewPassword.progressTintColor = .systemYellow
-                        
-                    case _ where levelTwoBigChar.evaluate(with: pass) || levelTwoNumber.evaluate(with: pass) || levelTwoSpec.evaluate(with: pass):
-                        progressViewPassword.progress = 0.5
-                        progressViewPassword.progressTintColor = .orange
-                        
-                    case _ where pass.count > 4:
-                        progressViewPassword.progress = 0.25
-                        progressViewPassword.progressTintColor = .red
-                        
-                    default:
-                        progressViewPassword.progress = 0
-                }
-            }
-        }
     
     deinit {
         removeKeyboardNotifications()
