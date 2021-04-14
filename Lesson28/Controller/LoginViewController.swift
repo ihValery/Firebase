@@ -14,8 +14,6 @@ class LoginViewController: UIViewController {
    
     @IBOutlet private weak var singUp: UIButton!
     @IBOutlet private weak var singIn: UIButton!
-
-    @IBOutlet var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,20 +33,19 @@ class LoginViewController: UIViewController {
         //Selector - метод который выполняется когда мы замечаем событие
         //NSNotification.Name? - за чем мы наблюдаем? (в данном случае за методом клавиатуры)
         //object- nil потому что ни с какими объектами сейчас не работаем
-        NotificationCenter.default.addObserver(self, selector: #selector(kbDidShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(kbDidHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         print("_____________registerForKeyboardNotifications_____________")
     }
     
     private func removeKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         print("_____________removeKeyboardNotifications_____________")
     }
     
     //когда появляется клавиатура мы хотим знать ее размеры - notification хранит в себе некую информацию
-    @objc func kbDidShow(notification: Notification) {
+    @objc func kbWillShow(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         //keyboardFrameEndUserInfoKey - определяет прямоугольник (CGRect) клавиатуры в координатах экрана(в текущей ориентации устройства)
         let kbFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
@@ -56,34 +53,23 @@ class LoginViewController: UIViewController {
         if self.view.frame.origin.y == 0 {
             self.view.frame.origin.y -= kbFrameSize.height / 1.5
         }
-        
-//        if self.view.frame.origin.y == 0 {
-//            self.view.frame.origin.y -= kbFrameSize.height / 1.8
-//        }
-        
-//        Указываем размер нашего контента (скролится - галимый эффект)
-//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height + kbFrameSize.height)
     }
     
-    @objc func kbDidHide(notification: Notification) {
+    @objc func kbWillHide() {
         
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
             print("________@objc func kbDidHide(notification: Notification) {______")
         }
     }
-//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
     
     //Скрываем клавиатуру по тапу view
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-
+        
         //Скрываем клавиатуру вызванную для конкретно этого объекта
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
-        
-        //Скрываем клавиатуру вызванную для любого объекта
-        //self.view.endEditing(true)
     }
     
     //MARK: -

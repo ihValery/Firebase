@@ -24,7 +24,7 @@ class TasksViewController: UIViewController {
     }
     
     deinit {
-        print("_____________deitit TasksViewController_____________")
+        print("_____________deinit TasksViewController_____________")
     }
 }
 
