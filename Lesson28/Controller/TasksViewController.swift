@@ -18,8 +18,28 @@ class TasksViewController: UIViewController {
         //Достаем его во "внешний мир" )))
         user = User(user: currentUser)
         ref = Database.database().reference(withPath: "user").child(String(user.uid)).child("tasks")
-
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        ref.observe(.value) { [weak self] snapshot in
+            var _tasks: [Task] = []
+            for item in snapshot.children {
+                let task = Task(snapshot: item as! Firebase.DataSnapshot)
+                _tasks.append(task)
+            }
+            self?.tasks = _tasks
+            self?.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        ref.removeAllObservers()
+    }
+    
     @IBAction private func addNewTastTap(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add a new joke", message: nil, preferredStyle: .alert)
@@ -63,15 +83,17 @@ extension TasksViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 2
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.backgroundColor = .clear
-        cell.textLabel?.text = "This is cell number \(indexPath.row)"
         cell.textLabel?.textColor = .black
+        
+        let tastTitle = tasks[indexPath.row].title
+        cell.textLabel?.text = tastTitle
         
         return cell
     }
