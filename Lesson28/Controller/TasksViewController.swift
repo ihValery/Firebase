@@ -3,22 +3,34 @@ import Firebase
 
 class TasksViewController: UIViewController {
     
+    var user: User!
+    var ref: Firebase.DatabaseReference!
+    var tasks: [Task] = []
+    
     @IBOutlet private weak var addNewTask: UIBarButtonItem!
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Получаем текущего пользователя
+        guard let currentUser = Auth.auth().currentUser else { return }
+        //Достаем его во "внешний мир" )))
+        user = User(user: currentUser)
+        ref = Database.database().reference(withPath: "user").child(String(user.uid)).child("tasks")
 
     }
     @IBAction private func addNewTastTap(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add a new joke", message: nil, preferredStyle: .alert)
         alert.addTextField()
-        let save = UIAlertAction(title: "Save", style: .default) { _ in
+        let save = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
             guard let textField = alert.textFields?.first?.text, textField != "" else { return }
             
-            //let task
-            //taskRef
+            let task = Task(title: textField, userId: (self?.user.uid)!)
+            //task.title.lowercased() - используется в качестве папки
+            let taskRef = self?.ref.child(task.title.lowercased())
+            taskRef?.setValue(task.convertToDictionary())
             
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
